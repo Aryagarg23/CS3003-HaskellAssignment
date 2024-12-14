@@ -13,6 +13,8 @@ findFirst :: Eq a => (a -> Bool) -> [a] -> Found
 --findFirst f (x:xs) =
 findFirst f list =doFindFirst f list 0
 
+do findFirst _ [] _ = NoMatch
+doFindFirst f (x:xs) index = if (f x) then Match index else doFindFirst f xs (index + 1)
 ------------------------------------------------
 -- palindrome
 ------------------------------------------------
